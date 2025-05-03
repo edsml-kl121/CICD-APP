@@ -1,3 +1,12 @@
+# .github/workflows/cloudrun-cd.yml
+name: Deploy to Google Cloud Run
+
+on:
+  workflow_run:
+    workflows: ["Build and Push Docker Image"]
+    types:
+      - completed
+
 jobs:
   deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -7,7 +16,7 @@ jobs:
       REGION: us-central1
       SERVICE_NAME: fe-test-app
       IMAGE: docker.io/u1800085/fe-app:latest
-      PROJECT_ID: coastal-cell-299117  # 🔁 replace with your real project ID or set as secret
+      PROJECT_ID: your-gcp-project-id  # 🔁 replace with your real project ID or set as secret
 
     steps:
     - name: Checkout
