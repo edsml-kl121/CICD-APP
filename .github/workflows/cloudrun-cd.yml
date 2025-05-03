@@ -16,7 +16,7 @@ jobs:
       REGION: us-central1
       SERVICE_NAME: fe-test-app
       IMAGE: docker.io/u1800085/fe-app:latest
-      PROJECT_ID: your-gcp-project-id  # 🔁 replace with your real project ID or set as secret
+      PROJECT_ID: coastal-cell-299117  # 🔁 replace with your real project ID or set as secret
 
     steps:
     - name: Checkout
